@@ -103,7 +103,7 @@ function loadDetailAlbum_001(userid, albumid, authkey, thumbsize, photosize, mar
 						
 				});
 
-				$j("#picasaPhotos a").slimbox();
+				//$j("#picasaPhotos a").slimbox();
 		});
 	});	
 }
