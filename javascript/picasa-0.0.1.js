@@ -17,6 +17,7 @@ function loadDetailAlbum_001(userid, albumid, authkey, thumbsize, photosize, mar
 	var ps = photosize || DEFAULT_PHOTOSIZE;
 	var m = margin || DEFAULT_MARGIN;
 
+	var idDiv = $(this).parent().attr("id");	
 	// Originally based on code from http://www.bloggingtips.com/2009/03/23/picasa-widgets-and-plugins-for-your-blog/
 	$j = jQuery.noConflict();
 	$j(document).ready(function(){
@@ -24,8 +25,7 @@ function loadDetailAlbum_001(userid, albumid, authkey, thumbsize, photosize, mar
 			"http://picasaweb.google.com/data/feed/api/user/" + userid + "/album/" + albumid + "?authkey=" + authkey + "&kind=photo&alt=json-in-script&callback=?",
 			function(data, status) {
 				//$j("#picasaThumb").text(data.feed.thumbnail.$t);
-				var idDiv = "#" + $(this).parent().attr("id");
-				$(idDiv).append("<div id=\"" + albumid + "\"></div>");
+				$("#" + idDiv).append("<div id=\"" + albumid + "\"></div>");
 				$("#" + albumid).append("<div class=\"picasaTitle\">" + data.feed.title.$t + "</div>");
 				$("#" + albumid).append("<div class=\"picasaSubtitle\">" + data.feed.subtitle.$t + "</div>");
 				$("#" + albumid).append("<div class=\"picasaPicCount\">" + data.feed.entry.length + "</div>");
