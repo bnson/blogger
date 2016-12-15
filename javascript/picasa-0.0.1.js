@@ -12,6 +12,16 @@ var DEFAULT_MARGIN    = 5;
 var DEFAULT_THUMBSIZE = THUMB_LARGE;
 var DEFAULT_PHOTOSIZE = PHOTO_MEDIUM;
 
+
+function loadData_IPhentai(userid, albumid, authkey, thumbsize, photosize, margin) {
+	var url = window.location.href;
+	if (url.endsWith(".html")) {
+		loadThumbAlbum_001("116713954427649694032", "ENKonKitKayaInCinema", "Gv1sRgCLzgtd7AvcHRew");
+	} else {
+		loadDetailAlbum_001("116713954427649694032", "ENKonKitKayaInCinema", "Gv1sRgCLzgtd7AvcHRew");
+	}	
+}
+
 function loadThumbAlbum_001(userid, albumid, authkey, thumbsize, photosize, margin) {
 	var ts = thumbsize || DEFAULT_THUMBSIZE;
 
