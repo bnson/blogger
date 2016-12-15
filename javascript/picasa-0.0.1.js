@@ -30,11 +30,11 @@ function loadDetailAlbum_001(userid, albumid, authkey, thumbsize, photosize, mar
 			function(data, status) {
 
 				$j("#" + idDiv).append("<div id=\"" + albumid + "\"></div>");
-				$j("#" + albumid).append("<div class=\"picasaThumb_" + albumid + "\"></div>");								
+				$j("#" + albumid).append("<div class=\"picasaThumb\" id=\"picasaThumb_" + albumid + "\"></div>");								
 				$j("#" + albumid).append("<div class=\"picasaTitle\">" + data.feed.title.$t + "</div>");
 				$j("#" + albumid).append("<div class=\"picasaSubtitle\">" + data.feed.subtitle.$t + "</div>");
 				$j("#" + albumid).append("<div class=\"picasaPicCount\">" + data.feed.entry.length + "</div>");
-				$j("#" + albumid).append("<div class=\"picasaPhotos_" + albumid + "\"></div>");			
+				$j("#" + albumid).append("<div class=\"picasaPhotos\" id=\"picasaPhotos_" + albumid + "\"></div>");			
 
 				var tmpCount = true;
 				$j.each(data.feed.entry, function(i, pic) {
