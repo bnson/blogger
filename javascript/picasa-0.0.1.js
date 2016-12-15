@@ -93,7 +93,7 @@ function loadDetailAlbum_001(userid, albumid, authkey, thumbsize, photosize, mar
 						tmpCount = false;
 					}
 					
-					var tmpDiv = $j("<div/>").attr("class", "separator")
+					var tmpDiv = $j("<div/>").attr("class", "photosAlbum")
 						.appendTo("#picasaPhotos_" + albumid);
 						
 					$j("<img/>").attr("src", thumb.url)
@@ -106,6 +106,8 @@ function loadDetailAlbum_001(userid, albumid, authkey, thumbsize, photosize, mar
 				});
 
 				//$j("#picasaPhotos a").slimbox();
+				$j("#" + albumid).append("<script src=\"https://www.blogger.com/static/v1/jsbin/3060300543-lbx__en_gb.js\" type=\"text/javascript\"></script>")
+				$j("#" + albumid).append("<link href=\"https://www.blogger.com/static/v1/v-css/368954415-lightbox_bundle.css\" rel=\"stylesheet\" type=\"text/css\"></link>")				
 		});
 	});	
 }
@@ -138,6 +140,7 @@ function loadImageThumbAlbum_001(userid, albumid, authkey, thumbsize, photosize,
 				});
 
 				//$j("#picasaPhotos a").slimbox();
+				
 		});
 	});
 }
@@ -170,6 +173,7 @@ function loadImageFullAlbum_001(userid, albumid, authkey, thumbsize, photosize, 
       });
       
       //$j("#picasaPhotos a").slimbox();
+	  
     });
   });
 }
