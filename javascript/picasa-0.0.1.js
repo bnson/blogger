@@ -12,13 +12,14 @@ var DEFAULT_MARGIN    = 5;
 var DEFAULT_THUMBSIZE = THUMB_LARGE;
 var DEFAULT_PHOTOSIZE = PHOTO_MEDIUM;
 
+var URL = window.location.href;
 
-function loadData_IPhentai(userid, albumid, authkey, thumbsize, photosize, margin) {
-	var url = window.location.href;
-	if (url.endsWith(".html")) {
-		loadThumbAlbum_001("116713954427649694032", "ENKonKitKayaInCinema", "Gv1sRgCLzgtd7AvcHRew");
-	} else {
+function loadData_iphentai(userid, albumid, authkey, thumbsize, photosize, margin) {
+	console.log('URL', URL);	
+	if (URL.toLowerCase().endsWith(".html")) {
 		loadDetailAlbum_001("116713954427649694032", "ENKonKitKayaInCinema", "Gv1sRgCLzgtd7AvcHRew");
+	} else {
+		loadThumbAlbum_001("116713954427649694032", "ENKonKitKayaInCinema", "Gv1sRgCLzgtd7AvcHRew");
 	}	
 }
 
@@ -28,7 +29,7 @@ function loadThumbAlbum_001(userid, albumid, authkey, thumbsize, photosize, marg
 	var scripts = document.getElementsByTagName('script');
 	var me = scripts[scripts.length-1];
 	var idDiv = me.parentNode.id;	
-	console.log('parent id', me.parentNode.id);	
+	//console.log('parent id', me.parentNode.id);	
 		
 	// Originally based on code from http://www.bloggingtips.com/2009/03/23/picasa-widgets-and-plugins-for-your-blog/
 	$j = jQuery.noConflict();
