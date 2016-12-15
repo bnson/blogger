@@ -96,10 +96,10 @@ function loadDetailAlbum_001(userid, albumid, authkey, thumbsize, photosize, mar
 					$j("<img/>").attr("src", thumb.url)
 						.attr("alt", desc)
 						.appendTo("#picasaPhotos_" + albumid)
-						.wrap("<a href=\"" + photo.url + "\" title=\"" + desc + "\" />");
+						.wrap("<a href=\"" + imgScaledUrl(photo.url, ps) + "\" title=\"" + desc + "\" />");
 				});
 
-				//$j("#picasaPhotos a").slimbox();
+				$j("#picasaPhotos a").slimbox();
 		});
 	});	
 }
