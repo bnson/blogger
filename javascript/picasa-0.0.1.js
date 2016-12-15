@@ -17,9 +17,9 @@ var URL = window.location.href;
 function loadData_iphentai(userid, albumid, authkey, thumbsize, photosize, margin) {
 	console.log('URL', URL);	
 	if (URL.toLowerCase().endsWith(".html")) {
-		loadDetailAlbum_001("116713954427649694032", "ENKonKitKayaInCinema", "Gv1sRgCLzgtd7AvcHRew");
+		loadDetailAlbum_001(userid, albumid, authkey, thumbsize, photosize, margin);
 	} else {
-		loadThumbAlbum_001("116713954427649694032", "ENKonKitKayaInCinema", "Gv1sRgCLzgtd7AvcHRew");
+		loadThumbAlbum_001(userid, albumid, authkey, thumbsize, photosize, margin);
 	}	
 }
 
