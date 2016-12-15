@@ -14,8 +14,6 @@ var DEFAULT_PHOTOSIZE = PHOTO_MEDIUM;
 
 function loadThumbAlbum_001(userid, albumid, authkey, thumbsize, photosize, margin) {
 	var ts = thumbsize || DEFAULT_THUMBSIZE;
-	var ps = photosize || DEFAULT_PHOTOSIZE;
-	var m = margin || DEFAULT_MARGIN;
 
 	var scripts = document.getElementsByTagName('script');
 	var me = scripts[scripts.length-1];
@@ -38,18 +36,13 @@ function loadThumbAlbum_001(userid, albumid, authkey, thumbsize, photosize, marg
 
 					if (tmpCount) {
 						$j("<img/>").attr("src", thumb.url.replace("s288","s400"))
-							.attr("alt", desc)
-							.appendTo("#picasaThumb_" + albumid);
-							//.wrap("<a href=\"" + photo.url + "\" title=\"" + desc + "\" />");						
+							.appendTo("#picasaThumb_" + albumid);					
 						tmpCount = false;
 					}
 				});
-
-				//$j("#picasaPhotos a").slimbox();
 		});
 	});	
 }
-
 
 function loadDetailAlbum_001(userid, albumid, authkey, thumbsize, photosize, margin) {
 	var ts = thumbsize || DEFAULT_THUMBSIZE;
