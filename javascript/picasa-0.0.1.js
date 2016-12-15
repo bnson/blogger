@@ -106,8 +106,8 @@ function loadDetailAlbum_001(userid, albumid, authkey, thumbsize, photosize, mar
 				});
 
 				//$j("#picasaPhotos a").slimbox();
-				$j("#" + albumid).append("<script src=\"https://www.blogger.com/static/v1/jsbin/3060300543-lbx__en_gb.js\" type=\"text/javascript\"></script>")
-				$j("#" + albumid).append("<link href=\"https://www.blogger.com/static/v1/v-css/368954415-lightbox_bundle.css\" rel=\"stylesheet\" type=\"text/css\"></link>")				
+				$j("#" + albumid).append("<script src=\"https://raw.githubusercontent.com/bnson/blogger/master/slimbox-2.05/js/slimbox2.js\" type=\"text/javascript\"></script>")
+				$j("#" + albumid).append("<link href=\"https://raw.githubusercontent.com/bnson/blogger/master/slimbox-2.05/css/slimbox2.css\" rel=\"stylesheet\" type=\"text/css\"></link>")				
 		});
 	});	
 }
