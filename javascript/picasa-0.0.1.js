@@ -29,11 +29,11 @@ function loadDetailAlbum_001(userid, albumid, authkey, thumbsize, photosize, mar
 			"http://picasaweb.google.com/data/feed/api/user/" + userid + "/album/" + albumid + "?authkey=" + authkey + "&kind=photo&alt=json-in-script&callback=?",
 			function(data, status) {
 				//$j("#picasaThumb").text(data.feed.thumbnail.$t);
-				$("#" + idDiv).append("<div id=\"" + albumid + "\"></div>");
-				$("#" + albumid).append("<div class=\"picasaTitle\">" + data.feed.title.$t + "</div>");
-				$("#" + albumid).append("<div class=\"picasaSubtitle\">" + data.feed.subtitle.$t + "</div>");
-				$("#" + albumid).append("<div class=\"picasaPicCount\">" + data.feed.entry.length + "</div>");
-				$("#" + albumid).append("<div class=\"picasaThumb\"></div>");				
+				$j("#" + idDiv).append("<div id=\"" + albumid + "\"></div>");
+				$j("#" + albumid).append("<div class=\"picasaTitle\">" + data.feed.title.$t + "</div>");
+				$j("#" + albumid).append("<div class=\"picasaSubtitle\">" + data.feed.subtitle.$t + "</div>");
+				$j("#" + albumid).append("<div class=\"picasaPicCount\">" + data.feed.entry.length + "</div>");
+				$j("#" + albumid).append("<div class=\"picasaThumb\"></div>");				
 
 				var tmpCount = true;
 				$j.each(data.feed.entry, function(i, pic) {
