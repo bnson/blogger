@@ -12,7 +12,7 @@ var DEFAULT_MARGIN    = 5;
 var DEFAULT_THUMBSIZE = THUMB_MEDIUM;
 var DEFAULT_PHOTOSIZE = PHOTO_MEDIUM;
 
-function loadAlbum_001(userid, albumid, authkey, thumbsize, photosize, margin) {
+function loadDetailAlbum_001(userid, albumid, authkey, thumbsize, photosize, margin) {
 	var ts = thumbsize || DEFAULT_THUMBSIZE;
 	var ps = photosize || DEFAULT_PHOTOSIZE;
 	var m = margin || DEFAULT_MARGIN;
@@ -23,8 +23,10 @@ function loadAlbum_001(userid, albumid, authkey, thumbsize, photosize, margin) {
 		$j.getJSON(
 			"http://picasaweb.google.com/data/feed/api/user/" + userid + "/album/" + albumid + "?authkey=" + authkey + "&kind=photo&alt=json-in-script&callback=?",
 			function(data, status) {
+				$j("#picasaThumb").text(data.feed.thumbnail.$t);
 				$j("#picasaTitle").text(data.feed.title.$t);
 				$j("#picasaSubtitle").text(data.feed.subtitle.$t);
+				$j("#picasaPage").text(data.feed.photos.$t);
 
 				$j.each(data.feed.entry, function(i, pic) {
 					var thumb = pic.media$group.media$thumbnail[ts];
@@ -41,10 +43,42 @@ function loadAlbum_001(userid, albumid, authkey, thumbsize, photosize, margin) {
 
 				$j("#picasaPhotos a").slimbox();
 		});
+	});	
+}
+
+function loadImageThumbAlbum_001(userid, albumid, authkey, thumbsize, photosize, margin) {
+	var ts = thumbsize || DEFAULT_THUMBSIZE;
+	var ps = photosize || DEFAULT_PHOTOSIZE;
+	var m = margin || DEFAULT_MARGIN;
+
+	// Originally based on code from http://www.bloggingtips.com/2009/03/23/picasa-widgets-and-plugins-for-your-blog/
+	$j = jQuery.noConflict();
+	$j(document).ready(function(){
+		$j.getJSON(
+			"http://picasaweb.google.com/data/feed/api/user/" + userid + "/album/" + albumid + "?authkey=" + authkey + "&kind=photo&alt=json-in-script&callback=?",
+			function(data, status) {
+				//$j("#picasaTitle").text(data.feed.title.$t);
+				//$j("#picasaSubtitle").text(data.feed.subtitle.$t);
+
+				$j.each(data.feed.entry, function(i, pic) {
+					var thumb = pic.media$group.media$thumbnail[ts];
+					var photo = pic.media$group.media$content[0];
+					var desc = pic.media$group.media$description.$t;
+					var pad = computePadding(thumb.width, thumb.height);
+
+					$j("<img/>").attr("src", thumb.url)
+						.attr("alt", desc)
+						.attr("style", imgMarginStyle(pad.hspace, pad.vspace, m))
+						.appendTo("#picasaPhotos")
+						.wrap("<a href=\"" + imgScaledUrl(photo.url, ps) + "\" title=\"" + desc + "\" />");
+				});
+
+				//$j("#picasaPhotos a").slimbox();
+		});
 	});
 }
 
-function loadImageAlbum_001(userid, albumid, authkey, thumbsize, photosize, margin) {
+function loadImageFullAlbum_001(userid, albumid, authkey, thumbsize, photosize, margin) {
   var ts = thumbsize || DEFAULT_THUMBSIZE;
   var ps = photosize || DEFAULT_PHOTOSIZE;
   var m = margin || DEFAULT_MARGIN;
@@ -77,7 +111,7 @@ function loadImageAlbum_001(userid, albumid, authkey, thumbsize, photosize, marg
 }
 
 
-function loadImageAlbum_002(userid, albumid, authkey, thumbsize, photosize, margin) {
+function loadImageFullAlbum_002(userid, albumid, authkey, thumbsize, photosize, margin) {
   var ts = thumbsize || DEFAULT_THUMBSIZE;
   var ps = photosize || DEFAULT_PHOTOSIZE;
   var m = margin || DEFAULT_MARGIN;
