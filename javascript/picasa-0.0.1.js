@@ -24,10 +24,13 @@ function loadDetailAlbum_001(userid, albumid, authkey, thumbsize, photosize, mar
 			"http://picasaweb.google.com/data/feed/api/user/" + userid + "/album/" + albumid + "?authkey=" + authkey + "&kind=photo&alt=json-in-script&callback=?",
 			function(data, status) {
 				//$j("#picasaThumb").text(data.feed.thumbnail.$t);
-				$j("#picasaTitle").text(data.feed.title.$t);
-				$j("#picasaSubtitle").text(data.feed.subtitle.$t);
-				$j("#picasaPicCount").text(data.feed.entry.length);
-				
+				var idDiv = "#" + $(this).parent().attr("id");
+				$(idDiv).append("<div id=\"" + albumid + "\"></div>");
+				$("#" + albumid).append("<div class=\"picasaTitle\">" + data.feed.title.$t + "</div>");
+				$("#" + albumid).append("<div class=\"picasaSubtitle\">" + data.feed.subtitle.$t + "</div>");
+				$("#" + albumid).append("<div class=\"picasaPicCount\">" + data.feed.entry.length + "</div>");
+				$("#" + albumid).append("<div class=\"picasaThumb\"></div>");				
+
 				var tmpCount = true;
 				$j.each(data.feed.entry, function(i, pic) {
 					var thumb = pic.media$group.media$thumbnail[ts];
@@ -35,19 +38,17 @@ function loadDetailAlbum_001(userid, albumid, authkey, thumbsize, photosize, mar
 					var desc = pic.media$group.media$description.$t;
 
 					if (tmpCount) {
-						$j("<img/>").attr("src", thumb.url)
+						$j("<img/>").attr("src", thumb.url.replace("s288","s400"))
 							.attr("alt", desc)
 							.appendTo("#picasaThumb")
-							.wrap("<a href=\"" + photo.url + "\" title=\"" + desc + "\" />");						
+							//.wrap("<a href=\"" + photo.url + "\" title=\"" + desc + "\" />");						
 						tmpCount = false;
 					}
 					
 					$j("<img/>").attr("src", thumb.url)
 						.attr("alt", desc)
-						.appendTo("#picasaPhotos")
+						.appendTo()
 						.wrap("<a href=\"" + photo.url + "\" title=\"" + desc + "\" />");
-						
-					
 				});
 
 				//$j("#picasaPhotos a").slimbox();
