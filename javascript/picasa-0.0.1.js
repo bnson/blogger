@@ -23,11 +23,25 @@ function loadDetailAlbum_001(userid, albumid, authkey, thumbsize, photosize, mar
 		$j.getJSON(
 			"http://picasaweb.google.com/data/feed/api/user/" + userid + "/album/" + albumid + "?authkey=" + authkey + "&kind=photo&alt=json-in-script&callback=?",
 			function(data, status) {
-				$j("#picasaThumb").text(data.feed.thumbnail.$t);
+				//$j("#picasaThumb").text(data.feed.thumbnail.$t);
 				$j("#picasaTitle").text(data.feed.title.$t);
 				$j("#picasaSubtitle").text(data.feed.subtitle.$t);
 				$j("#picasaPage").text(data.feed.photos.$t);
 
+				$j.each(data.feed.entry, function(i, pic) {
+					var thumb = pic.media$group.media$thumbnail[ts];
+					var photo = pic.media$group.media$content[0];
+					var desc = pic.media$group.media$description.$t;
+					var pad = computePadding(thumb.width, thumb.height);
+
+					$j("<img/>").attr("src", thumb.url)
+						.attr("alt", desc)
+						.attr("style", imgMarginStyle(pad.hspace, pad.vspace, m))
+						.appendTo("#picasaThumb")
+						.wrap("<a href=\"" + imgScaledUrl(photo.url, ps) + "\" title=\"" + desc + "\" />");
+					return false;
+				});				
+				
 				$j.each(data.feed.entry, function(i, pic) {
 					var thumb = pic.media$group.media$thumbnail[ts];
 					var photo = pic.media$group.media$content[0];
