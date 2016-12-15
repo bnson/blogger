@@ -9,7 +9,7 @@ var PHOTO_MEDIUM = 800;
 var PHOTO_LARGE  = 1024;
 
 var DEFAULT_MARGIN    = 5;
-var DEFAULT_THUMBSIZE = THUMB_MEDIUM;
+var DEFAULT_THUMBSIZE = THUMB_LARGE;
 var DEFAULT_PHOTOSIZE = PHOTO_MEDIUM;
 
 function loadDetailAlbum_001(userid, albumid, authkey, thumbsize, photosize, margin) {
@@ -26,36 +26,31 @@ function loadDetailAlbum_001(userid, albumid, authkey, thumbsize, photosize, mar
 				//$j("#picasaThumb").text(data.feed.thumbnail.$t);
 				$j("#picasaTitle").text(data.feed.title.$t);
 				$j("#picasaSubtitle").text(data.feed.subtitle.$t);
-				$j("#picasaPicCount").text(data.feed.entry.length - 1);
-
-				$j.each(data.feed.entry, function(i, pic) {
-					var thumb = pic.media$group.media$thumbnail[ts];
-					var photo = pic.media$group.media$content[0];
-					var desc = pic.media$group.media$description.$t;
-					var pad = computePadding(thumb.width, thumb.height);
-
-					$j("<img/>").attr("src", thumb.url)
-						.attr("alt", desc)
-						.attr("style", imgMarginStyle(pad.hspace, pad.vspace, m))
-						.appendTo("#picasaThumb")
-						.wrap("<a href=\"" + imgScaledUrl(photo.url, ps) + "\" title=\"" + desc + "\" />");
-					return false;
-				});				
+				$j("#picasaPicCount").text(data.feed.entry.length);
 				
+				var tmpCount = true;
 				$j.each(data.feed.entry, function(i, pic) {
 					var thumb = pic.media$group.media$thumbnail[ts];
 					var photo = pic.media$group.media$content[0];
 					var desc = pic.media$group.media$description.$t;
-					var pad = computePadding(thumb.width, thumb.height);
 
+					if (tmpCount) {
+						$j("<img/>").attr("src", thumb.url)
+							.attr("alt", desc)
+							.appendTo("#picasaThumb")
+							.wrap("<a href=\"" + photo.url + "\" title=\"" + desc + "\" />");						
+						tmpCount = false;
+					}
+					
 					$j("<img/>").attr("src", thumb.url)
 						.attr("alt", desc)
-						.attr("style", imgMarginStyle(pad.hspace, pad.vspace, m))
 						.appendTo("#picasaPhotos")
-						.wrap("<a href=\"" + imgScaledUrl(photo.url, ps) + "\" title=\"" + desc + "\" />");
+						.wrap("<a href=\"" + photo.url + "\" title=\"" + desc + "\" />");
+						
+					
 				});
 
-				$j("#picasaPhotos a").slimbox();
+				//$j("#picasaPhotos a").slimbox();
 		});
 	});	
 }
