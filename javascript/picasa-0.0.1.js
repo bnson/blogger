@@ -12,7 +12,7 @@ var DEFAULT_MARGIN    = 5;
 var DEFAULT_THUMBSIZE = THUMB_MEDIUM;
 var DEFAULT_PHOTOSIZE = PHOTO_MEDIUM;
 
-function loadPicasaAlbum_001(userid, albumid, authkey, thumbsize, photosize, margin) {
+function loadImageAlbum_001(userid, albumid, authkey, thumbsize, photosize, margin) {
   var ts = thumbsize || DEFAULT_THUMBSIZE;
   var ps = photosize || DEFAULT_PHOTOSIZE;
   var m = margin || DEFAULT_MARGIN;
@@ -45,7 +45,7 @@ function loadPicasaAlbum_001(userid, albumid, authkey, thumbsize, photosize, mar
 }
 
 
-function loadPicasaAlbum_002(userid, albumid, authkey, thumbsize, photosize, margin) {
+function loadImageAlbum_002(userid, albumid, authkey, thumbsize, photosize, margin) {
   var ts = thumbsize || DEFAULT_THUMBSIZE;
   var ps = photosize || DEFAULT_PHOTOSIZE;
   var m = margin || DEFAULT_MARGIN;
