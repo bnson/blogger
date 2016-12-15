@@ -84,7 +84,8 @@ function loadDetailAlbum_001(userid, albumid, authkey, thumbsize, photosize, mar
 					var thumb = pic.media$group.media$thumbnail[ts];
 					var photo = pic.media$group.media$content[0];
 					var desc = pic.media$group.media$description.$t;
-
+					var pad = computePadding(thumb.width, thumb.height);
+					
 					if (tmpCount) {
 						$j("<img/>").attr("src", thumb.url.replace("s288","s400"))
 							.attr("alt", desc)
