@@ -26,7 +26,7 @@ function loadDetailAlbum_001(userid, albumid, authkey, thumbsize, photosize, mar
 				//$j("#picasaThumb").text(data.feed.thumbnail.$t);
 				$j("#picasaTitle").text(data.feed.title.$t);
 				$j("#picasaSubtitle").text(data.feed.subtitle.$t);
-				$j("#picasaPage").text(data.feed.photos.$t);
+				$j("#picasaPicCount").text(data.feed.entry.length - 1);
 
 				$j.each(data.feed.entry, function(i, pic) {
 					var thumb = pic.media$group.media$thumbnail[ts];
