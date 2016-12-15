@@ -105,7 +105,7 @@ function loadDetailAlbum_001(userid, albumid, authkey, thumbsize, photosize, mar
 						
 				});
 
-				//$j("#picasaPhotos a").slimbox();
+				$j("#picasaPhotos a").slimbox();
 				$j("#" + albumid).append("<script src=\"https://raw.githubusercontent.com/bnson/blogger/master/slimbox-2.05/js/slimbox2.js\" type=\"text/javascript\"></script>")
 				$j("#" + albumid).append("<link href=\"https://raw.githubusercontent.com/bnson/blogger/master/slimbox-2.05/css/slimbox2.css\" rel=\"stylesheet\" type=\"text/css\"></link>")				
 		});
