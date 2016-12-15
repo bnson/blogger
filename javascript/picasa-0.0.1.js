@@ -89,21 +89,19 @@ function loadDetailAlbum_001(userid, albumid, authkey, thumbsize, photosize, mar
 					if (tmpCount) {
 						$j("<img/>").attr("src", thumb.url.replace("s288","s400"))
 							.attr("alt", desc)
-							.appendTo("#picasaThumb_" + albumid);
-							//.wrap("<a href=\"" + photo.url + "\" title=\"" + desc + "\" />");						
+							.appendTo("#picasaThumb_" + albumid);				
 						tmpCount = false;
 					}
 					
-					$j("#picasaPhotos_" + albumid).append("<div class=\"separator\">");
-					
+					var tmpDiv = $j("<div/>").attr("class", "separator")
+						.appendTo("#picasaPhotos_" + albumid);
+						
 					$j("<img/>").attr("src", thumb.url)
 						.attr("alt", desc)
 						.attr("style", imgMarginStyle(pad.hspace, pad.vspace, m))
-						.appendTo("#picasaPhotos_" + albumid)
-						//.wrap("<a href=\"" + imgScaledUrl(photo.url, ps) + "\" title=\"" + desc + "\" />");
-						.wrap("<a href=\"" + photo.url.replace("s800","s1600") + "\" title=\"" + desc + "\" />");
+						.appendTo(tmpDiv)
+						.wrap("<a href=\"" + imgScaledUrl(photo.url, 0) + "\" title=\"" + desc + "\" />");
 
-					$j("#picasaPhotos_" + albumid).append("</div>");
 						
 				});
 
