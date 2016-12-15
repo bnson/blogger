@@ -94,11 +94,14 @@ function loadDetailAlbum_001(userid, albumid, authkey, thumbsize, photosize, mar
 						tmpCount = false;
 					}
 					
+					var tmpDiv = $j("#picasaPhotos_" + albumid).append("<div class=\"separator\"></div>");
+					
 					$j("<img/>").attr("src", thumb.url)
 						.attr("alt", desc)
 						.attr("style", imgMarginStyle(pad.hspace, pad.vspace, m))
-						.appendTo("#picasaPhotos_" + albumid)
-						.wrap("<a href=\"" + imgScaledUrl(photo.url, ps) + "\" title=\"" + desc + "\" />");
+						.appendTo(tmpDiv)
+						//.wrap("<a href=\"" + imgScaledUrl(photo.url, ps) + "\" title=\"" + desc + "\" />");
+						.wrap("<a href=\"" + photo.url.replace("s800","s1600") + "\" title=\"" + desc + "\" />");
 						
 						
 				});
