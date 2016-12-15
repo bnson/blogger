@@ -95,8 +95,11 @@ function loadDetailAlbum_001(userid, albumid, authkey, thumbsize, photosize, mar
 					
 					$j("<img/>").attr("src", thumb.url)
 						.attr("alt", desc)
+						.attr("style", imgMarginStyle(pad.hspace, pad.vspace, m))
 						.appendTo("#picasaPhotos_" + albumid)
 						.wrap("<a href=\"" + imgScaledUrl(photo.url, ps) + "\" title=\"" + desc + "\" />");
+						
+						
 				});
 
 				$j("#picasaPhotos a").slimbox();
