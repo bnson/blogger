@@ -112,7 +112,7 @@ function loadDetailAlbum_001(userid, albumid, authkey, thumbsize, photosize, mar
 				});
 
 				//$j("#picasaPhotos_" + albumid + " a").slimbox();
-				$('.picasaPhotos').magnificPopup({
+				$j('.picasaPhotos').magnificPopup({
 				  delegate: 'a',
 				  type: 'image',
 				  tLoading: 'Loading image #%curr%...',
