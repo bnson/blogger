@@ -149,9 +149,35 @@
     function i() {
         a.className = "";
 		
-        w(g).css({backgroundImage: "url(" + n + ")",visibility: "hidden",display: ""});
-        w(p).width(k.width);
-        w([p, I, d]).height(k.height);
+		/* make sure the image won't be bigger than the window */
+		var winWidth = $(window).width() - 20;
+		var winHeight = $(window).height() - 104;
+		var maxSize = (winWidth > winHeight) ? winHeight : winWidth; /* the smaller dimension determines max size */
+
+		/* determine proper w and h for img, based on original image'w dimensions and maxSize */
+		var my_w = preload.width; 
+		var my_h = preload.height;
+		if (my_w > my_h)
+		{
+			my_h = maxSize * my_h / my_w;
+			my_w = maxSize;
+		}
+		else
+		{
+			my_w = maxSize * my_w / my_h;
+			my_h = maxSize;
+		}
+
+		if (preload.width > my_w || preload.height > my_h){ /* constrain it */
+			$(image).css({backgroundImage: "url(" + activeURL + ")", backgroundSize: my_w + "px " + my_h + "px", visibility: "hidden", display: ""});
+			$(sizer).width(my_w);
+			$([sizer, prevLink, nextLink]).height(my_h);
+		}
+		else { /* default behaviour */
+			$(image).css({backgroundImage: "url(" + activeURL + ")", backgroundSize: "", visibility: "hidden", display: ""});
+			$(sizer).width(preload.width);
+			$([sizer, prevLink, nextLink]).height(preload.height);
+		}
 		
         w(A).html(f[F][1] || "");
         w(K).html((((f.length > 1) && u.counterText) || "").replace(/{x}/, F + 1).replace(/{y}/, f.length));
