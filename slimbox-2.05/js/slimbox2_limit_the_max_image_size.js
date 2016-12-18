@@ -148,37 +148,10 @@
 
     function i() {
         a.className = "";
-
-        var winWidth  = window.innerWidth  - 20;
-        var winHeight = window.innerHeight - 120;
-        if (winWidth > winHeight) { 
-            var maxSize = winHeight; 
-        } else { 
-            var maxSize = winWidth;
-        }
-
-        /* determine proper w and h for img, based on original image'w dimensions and maxSize */
-        var my_w = k.width; 
-        var my_h = k.height;            
-
-        if (my_w > my_h) {
-            my_h = maxSize * my_h / my_w;
-            my_w = maxSize;
-        } else {
-            my_w = maxSize * my_w / my_h;
-            my_h = maxSize;
-        }
-
-        if (k.width > my_w || k.height > my_h){ /* constrain it */
-            w(g).css({backgroundImage:"url("+n+")",backgroundSize:""+my_w+"px "+my_h+"px",visibility:"hidden",display:""});
-            w(p).width(my_w);
-            w([p,I,d]).height(my_h);    
-        }
-        else { /* default behaviour  NORMAL before hackeing*/
-            w(g).css({backgroundImage:"url("+n+")",backgroundSize:"",visibility:"hidden",display:""});
-            w(p).width(k.width);
-            w([p,I,d]).height(k.height);            
-        }    		
+		
+        w(g).css({backgroundImage: "url(" + n + ")",visibility: "hidden",display: ""});
+        w(p).width(k.width);
+        w([p, I, d]).height(k.height);
 		
         w(A).html(f[F][1] || "");
         w(K).html((((f.length > 1) && u.counterText) || "").replace(/{x}/, F + 1).replace(/{y}/, f.length));
