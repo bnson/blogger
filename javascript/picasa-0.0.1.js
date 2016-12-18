@@ -72,11 +72,13 @@ function loadDetailAlbum_001(userid, albumid, authkey, thumbsize, photosize, mar
 			"http://picasaweb.google.com/data/feed/api/user/" + userid + "/album/" + albumid + "?authkey=" + authkey + "&kind=photo&alt=json-in-script&callback=?",
 			function(data, status) {
 
-				$j("#" + idDiv).append("<div id=\"" + albumid + "\"></div>");
-				$j("#" + albumid).append("<div class=\"picasaThumb\" id=\"picasaThumb_" + albumid + "\"></div>");								
-				$j("#" + albumid).append("<div class=\"picasaTitle\">" + data.feed.title.$t + "</div>");
-				$j("#" + albumid).append("<div class=\"picasaSubtitle\">" + data.feed.subtitle.$t + "</div>");
-				$j("#" + albumid).append("<div class=\"picasaPicCount\">" + data.feed.entry.length + "</div>");
+				$j("#" + idDiv).append("<div class='row' id='" + albumid + "'></div>");
+				
+				$j("#" + albumid).append("<div class='col-xs-12' id=\"picasaThumb_" + albumid + "\"></div>");
+				
+				$j("#" + albumid).append("<div class=\"row\" id=\"picasaTitle\">" + data.feed.title.$t + "</div>");
+				$j("#" + albumid).append("<div class=\"row\" id=\"picasaSubtitle\">" + data.feed.subtitle.$t + "</div>");
+				$j("#" + albumid).append("<div class=\"row\" id=\"picasaPicCount\">" + data.feed.entry.length + "</div>");
 				$j("#" + albumid).append("<div class=\"picasaPhotos\" id=\"picasaPhotos_" + albumid + "\"></div>");			
 
 				$j("#" + albumid).append("<script src=\"https://raw.githubusercontent.com/bnson/blogger/master/slimbox-2.05/js/slimbox2.js\" type=\"text/javascript\"></script>")
@@ -101,7 +103,7 @@ function loadDetailAlbum_001(userid, albumid, authkey, thumbsize, photosize, mar
 					$j("<img/>").attr("src", thumb.url)
 						.attr("alt", desc)
 						.attr("style", imgMarginStyle(pad.hspace, pad.vspace, m))
-						.appendTo("#picasaThumb_" + albumid)
+						.appendTo("#picasaPhotos_" + albumid)
 						.wrap("<a href=\"" + imgScaledUrl(photo.url, 0) + "\" title=\"" + desc + "\" />");
 
 						
