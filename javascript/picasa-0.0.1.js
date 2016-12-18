@@ -38,8 +38,8 @@ function loadThumbAlbum_001(userid, albumid, authkey, thumbsize, photosize, marg
 			"http://picasaweb.google.com/data/feed/api/user/" + userid + "/album/" + albumid + "?authkey=" + authkey + "&kind=photo&alt=json-in-script&callback=?",
 			function(data, status) {
 
-				$j("#" + idDiv).append("<div id=\"" + albumid + "\"></div>");
-				$j("#" + albumid).append("<div class=\"picasaThumb\" id=\"picasaThumb_" + albumid + "\"></div>");								
+				$j("#" + idDiv).append("<div class='row albums' id=\"" + albumid + "\"></div>");
+				$j("#" + albumid).append("<div class='col-xs-12 picasaThumbs' id=\"picasaThumb_" + albumid + "\"></div>");								
 
 				var tmpCount = true;
 				$j.each(data.feed.entry, function(i, pic) {
@@ -72,9 +72,9 @@ function loadDetailAlbum_001(userid, albumid, authkey, thumbsize, photosize, mar
 			"http://picasaweb.google.com/data/feed/api/user/" + userid + "/album/" + albumid + "?authkey=" + authkey + "&kind=photo&alt=json-in-script&callback=?",
 			function(data, status) {
 
-				$j("#" + idDiv).append("<div class='row' id='" + albumid + "'></div>");
+				$j("#" + idDiv).append("<div class='row album' id='" + albumid + "'></div>");
 				
-				$j("#" + albumid).append("<div class='col-xs-12' id=\"picasaThumb_" + albumid + "\"></div>");
+				$j("#" + albumid).append("<div class='col-xs-12 picasaThumb' id=\"picasaThumb_" + albumid + "\"></div>");
 				
 				$j("#" + albumid).append("<div class=\"row\" id=\"picasaTitle\">" + data.feed.title.$t + "</div>");
 				$j("#" + albumid).append("<div class=\"row\" id=\"picasaSubtitle\">" + data.feed.subtitle.$t + "</div>");
