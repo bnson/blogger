@@ -100,19 +100,18 @@ function loadDetailAlbum_001(userid, albumid, authkey, thumbsize, photosize, mar
 						tmpCount = false;
 					}
 					
-					//var tmpDiv = $j("<div/>").attr("class", "photosAlbum").appendTo("#picasaPhotos_" + albumid);
+					var tmpDiv = $j("<div/>").attr("class", "col-xs-6 col-md-3").appendTo("#picasaPhotos_" + albumid);
 						
 					$j("<img/>").attr("src", thumb.url)
-						.attr("class", "col-xs-6 col-md-3")
 						.attr("alt", desc)
 						.attr("style", imgMarginStyle(pad.hspace, pad.vspace, m))
-						.appendTo("#picasaPhotos_" + albumid)
+						.appendTo(tmpDiv)
 						.wrap("<a href=\"" + imgScaledUrl(photo.url, 0) + "\" title=\"" + desc + "\" />");
 
 						
 				});
 
-				$j("#picasaThumb_" + albumid + " a").slimbox();
+				$j("#picasaPhotos_" + albumid + " a").slimbox();
 		});
 	});	
 }
