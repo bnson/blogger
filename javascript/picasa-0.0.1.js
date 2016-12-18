@@ -77,11 +77,11 @@ function loadDetailAlbum_001(userid, albumid, authkey, thumbsize, photosize, mar
 				$j("#" + albumid).append("<div class='col-xs-4 picasaThumb' id='picasaThumb_" + albumid + "'></div>");
 				$j("#" + albumid).append("<div class='col-xs-8 picasaInfor' id='picasaInfor_" + albumid + "'></div>");
 				
-				$j("#picasaInfor_" + albumid).append("<div class=\"row\" id=\"picasaTitle\">" + data.feed.title.$t + "</div>");
-				$j("#picasaInfor_" + albumid).append("<div class=\"row\" id=\"picasaSubtitle\">" + data.feed.subtitle.$t + "</div>");
-				$j("#picasaInfor_" + albumid).append("<div class=\"row\" id=\"picasaPicCount\">" + data.feed.entry.length + "</div>");
+				$j("#picasaInfor_" + albumid).append("<div class='row' id='picasaTitle'>" + data.feed.title.$t + "</div>");
+				$j("#picasaInfor_" + albumid).append("<div class='row' id='picasaSubtitle'>" + data.feed.subtitle.$t + "</div>");
+				$j("#picasaInfor_" + albumid).append("<div class='row' id='picasaPicCount'>" + data.feed.entry.length + "</div>");
 
-				$j("#" + albumid).append("<div class='col-xs-12 picasaPhotos' id=\"picasaPhotos_" + albumid + "\"></div>");			
+				$j("#" + albumid).append("<div class='col-xs-12'><div class='row picasaPhotos' id='picasaPhotos_" + albumid + "'></div></div>");			
 
 				//$j("#" + albumid).append("<script src=\"https://raw.githubusercontent.com/bnson/blogger/master/slimbox-2.05/js/slimbox2.js\" type=\"text/javascript\"></script>")
 				//$j("#" + albumid).append("<link href=\"https://raw.githubusercontent.com/bnson/blogger/master/slimbox-2.05/css/slimbox2.css\" rel=\"stylesheet\" type=\"text/css\"></link>")				
