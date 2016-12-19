@@ -104,7 +104,6 @@ function loadDetailAlbum_001(userid, albumid, authkey, thumbsize, photosize, mar
 					$j("<img/>").attr("src", thumb.url)
 						.attr("class", "img-responsive col-xs-12")
 						.attr("alt", desc)
-						.attr("style", imgMarginStyle(pad.hspace, pad.vspace, m))
 						.appendTo(tmpDiv)
 						.wrap("<a href=\"" + imgScaledUrl(photo.url, 0) + "\" title=\"" + desc + "\" />");
 
