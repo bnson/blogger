@@ -99,7 +99,7 @@ function loadDetailAlbum_001(userid, albumid, authkey, thumbsize, photosize, mar
 						tmpCount = false;
 					}
 					
-					var tmpDiv = $j("<div/>").attr("class", "col-xs-6 col-md-3").appendTo("#picasaPhotos_" + albumid);
+					var tmpDiv = $j("<div/>").attr("class", "col-xs-6 col-md-3 itemPost").appendTo("#picasaPhotos_" + albumid);
 						
 					$j("<img/>").attr("src", thumb.url)
 						.attr("class", "img-responsive col-xs-12")
