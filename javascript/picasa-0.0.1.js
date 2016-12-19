@@ -102,6 +102,7 @@ function loadDetailAlbum_001(userid, albumid, authkey, thumbsize, photosize, mar
 					var tmpDiv = $j("<div/>").attr("class", "col-xs-6 col-md-3").appendTo("#picasaPhotos_" + albumid);
 						
 					$j("<img/>").attr("src", thumb.url)
+						.attr("class", "img-responsive col-xs-12")
 						.attr("alt", desc)
 						.attr("style", imgMarginStyle(pad.hspace, pad.vspace, m))
 						.appendTo(tmpDiv)
