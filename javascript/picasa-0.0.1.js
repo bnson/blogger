@@ -84,10 +84,7 @@ function loadDetailAlbum_001(userid, albumid, authkey, thumbsize, photosize, mar
 				$j("#picasaInfor_" + albumid).append("<div class='row' id='picasaPicCount'>" + data.feed.entry.length + "</div>");
 
 				$j("#" + albumid).append("<div class='col-xs-12'><div class='row picasaPhotos' id='picasaPhotos_" + albumid + "'></div></div>");			
-
-				//$j("#" + albumid).append("<script src=\"https://raw.githubusercontent.com/bnson/blogger/master/slimbox-2.05/js/slimbox2.js\" type=\"text/javascript\"></script>")
-				//$j("#" + albumid).append("<link href=\"https://raw.githubusercontent.com/bnson/blogger/master/slimbox-2.05/css/slimbox2.css\" rel=\"stylesheet\" type=\"text/css\"></link>")				
-								
+		
 				var tmpCount = true;
 				$j.each(data.feed.entry, function(i, pic) {
 					var thumb = pic.media$group.media$thumbnail[ts];
@@ -102,7 +99,7 @@ function loadDetailAlbum_001(userid, albumid, authkey, thumbsize, photosize, mar
 						tmpCount = false;
 					}
 					
-					var tmpDiv = $j("<div/>").attr("class", "col-xs-6 col-md-3").appendTo("#picasaPhotos_" + albumid);
+					var tmpDiv = $j("<div/>").attr("class", "col-xs-6 col-md-4").appendTo("#picasaPhotos_" + albumid);
 						
 					$j("<img/>").attr("src", thumb.url)
 						.attr("alt", desc)
