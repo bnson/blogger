@@ -74,7 +74,7 @@ function loadDetailAlbum_001(userid, albumid, authkey, thumbsize, photosize, mar
 
 				$j("#" + idDiv).append("<div class='row album' id='" + albumid + "'></div>");
 				
-				$j("#" + albumid).append("<div class='col-xs-12'><div class='row' id='albumInfor'></div>");
+				$j("#" + albumid).append("<div class='col-xs-12'><div class='row' id='albumInfor'></div><hr style='border: 1px solid #373a3c' />​");
 				
 				$j("#albumInfor").append("<div class='col-xs-12 col-md-3 picasaThumb' id='picasaThumb_" + albumid + "'></div>");
 				$j("#albumInfor").append("<div class='col-xs-12 col-md-9 picasaInfor' id='picasaInfor_" + albumid + "'></div>");
