@@ -90,7 +90,7 @@ function loadDetailAlbum_001(userid, albumid, authkey, thumbsize, photosize, mar
 				
 				$j("#picasaInfor_" + albumid).append("<div class='row' id='picasaTitle'>" + data.feed.title.$t + "</div>");
 				$j("#picasaInfor_" + albumid).append("<div class='row' id='picasaLabels'></div>");
-				$j("#picasaLabels").appendTo($j("#labelPost"));
+				$j("#labelPost").appendTo($j("#picasaLabels"));
 				$j("#picasaInfor_" + albumid).append("<div class='row' id='picasaPicCount'><span>Total page: </span>" + data.feed.entry.length + "</div>");
 				$j("#picasaInfor_" + albumid).append("<div class='row' id='picasaSubtitle'>" + data.feed.subtitle.$t + "</div>");				
 
