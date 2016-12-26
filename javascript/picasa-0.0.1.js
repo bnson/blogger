@@ -18,6 +18,7 @@ function loadData_iphentai(userid, albumid, authkey, thumbsize, photosize, margi
 	console.log('URL', URL);	
 	if (URL.toLowerCase().endsWith(".html")) {
 		loadDetailAlbum_001(userid, albumid, authkey, thumbsize, photosize, margin);
+		
 	} else {
 		loadThumbAlbum_001(userid, albumid, authkey, thumbsize, photosize, margin);
 	}	
@@ -59,6 +60,7 @@ function loadThumbAlbum_001(userid, albumid, authkey, thumbsize, photosize, marg
 					}
 				});
 		});
+		
 	});	
 }
 
@@ -138,6 +140,7 @@ function loadDetailAlbum_001(userid, albumid, authkey, thumbsize, photosize, mar
 				});				
 				
 		});
+		$j('#labelPost').appendTo('#picasaLabels');
 	});	
 }
 
