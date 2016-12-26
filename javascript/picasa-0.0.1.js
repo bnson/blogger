@@ -140,7 +140,7 @@ function loadDetailAlbum_001(userid, albumid, authkey, thumbsize, photosize, mar
 				});				
 				
 		});
-		$j('#labelPost').appendTo('#picasaLabels');
+		$j("#picasaLabels").append("#labelPost");
 	});	
 }
 
