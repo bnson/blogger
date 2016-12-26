@@ -23,6 +23,13 @@ function loadData_iphentai(userid, albumid, authkey, thumbsize, photosize, margi
 	}	
 }
 
+function loadRecentPost() {
+	
+	var callback = "<script src='xxxxx'></script>";
+	
+	
+}
+
 function loadThumbAlbum_001(userid, albumid, authkey, thumbsize, photosize, margin) {
 	var ts = thumbsize || DEFAULT_THUMBSIZE;
 
@@ -63,8 +70,9 @@ function loadDetailAlbum_001(userid, albumid, authkey, thumbsize, photosize, mar
 	var scripts = document.getElementsByTagName('script');
 	var me = scripts[scripts.length-1];
 	var idDiv = me.parentNode.id;	
-	console.log('parent id', me.parentNode.id);	
+	//console.log('parent id', me.parentNode.id);	
 		
+	var labels = "<b:if cond='data:top.showPostLabels and data:post.labels'><data:postLabelsLabel/><b:loop values='data:post.labels' var='label'><a expr:href='data:label.url' rel='tag'><data:label.name/></a><b:if cond='not data:label.isLast'>,</b:if></b:loop></b:if>";
 	// Originally based on code from http://www.bloggingtips.com/2009/03/23/picasa-widgets-and-plugins-for-your-blog/
 	$j = jQuery.noConflict();
 	$j(document).ready(function(){
@@ -80,8 +88,9 @@ function loadDetailAlbum_001(userid, albumid, authkey, thumbsize, photosize, mar
 				$j("#albumInfor").append("<div class='col-xs-12 col-md-9 picasaInfor' id='picasaInfor_" + albumid + "'></div>");
 				
 				$j("#picasaInfor_" + albumid).append("<div class='row' id='picasaTitle'>" + data.feed.title.$t + "</div>");
-				$j("#picasaInfor_" + albumid).append("<div class='row' id='picasaSubtitle'>" + data.feed.subtitle.$t + "</div>");
-				$j("#picasaInfor_" + albumid).append("<div class='row' id='picasaPicCount'>" + data.feed.entry.length + "</div>");
+				$j("#picasaInfor_" + albumid).append("<div class='row' id='picasaLabelt'><span>Label: </span>" + labels + "</div>");
+				$j("#picasaInfor_" + albumid).append("<div class='row' id='picasaPicCount'><span>Total page: </span>" + data.feed.entry.length + "</div>");
+				$j("#picasaInfor_" + albumid).append("<div class='row' id='picasaSubtitle'>" + data.feed.subtitle.$t + "</div>");				
 
 				$j("#" + albumid).append("<div class='col-xs-12'><div class='row picasaPhotos' id='picasaPhotos_" + albumid + "'></div></div>");			
 		
