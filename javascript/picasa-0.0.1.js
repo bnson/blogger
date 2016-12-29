@@ -24,9 +24,38 @@ function loadData_iphentai(userid, albumid, authkey, thumbsize, photosize, margi
 	}	
 }
 
-function loadRecentPost() {
-	
-	var callback = "<script src='xxxxx'></script>";
+function loadRecentPost_001(userid, albumid, authkey, thumbsize, photosize, margin) {
+	var ts = thumbsize || DEFAULT_THUMBSIZE;
+
+	var scripts = document.getElementsByTagName('script');
+	var me = scripts[scripts.length-1];
+	var idDiv = me.parentNode.id;	
+	//console.log('parent id', me.parentNode.id);	
+		
+	// Originally based on code from http://www.bloggingtips.com/2009/03/23/picasa-widgets-and-plugins-for-your-blog/
+	$j = jQuery.noConflict();
+	$j(document).ready(function(){
+		$j.getJSON(
+			"http://picasaweb.google.com/data/feed/api/user/" + userid + "/album/" + albumid + "?authkey=" + authkey + "&kind=photo&alt=json-in-script&callback=?",
+			function(data, status) {
+
+				$j("#" + idDiv).append("<div class='row albums' id=\"" + albumid + "\"></div>");
+				$j("#" + albumid).append("<div class='col-xs-12 picasaThumbs' id=\"picasaThumb_" + albumid + "\"></div>");								
+
+				var tmpCount = true;
+				$j.each(data.feed.entry, function(i, pic) {
+					var thumb = pic.media$group.media$thumbnail[ts];
+
+					if (tmpCount) {
+						$j("<img/>").attr("src", thumb.url.replace("s288","s400"))
+							.appendTo("#picasaThumb_" + albumid);					
+						tmpCount = false;
+					}
+				});
+		});
+		
+	});		
+
 	
 	
 }
