@@ -47,8 +47,7 @@ function loadRecentPost_001(userid, albumid, authkey, thumbsize, photosize, marg
 					var thumb = pic.media$group.media$thumbnail[ts];
 
 					if (tmpCount) {
-						$j("<img/>").attr("src", thumb.url.replace("s288","s400"))
-							.appendTo("#picasaThumb_" + albumid);					
+						$j("<img/>").attr("src", thumb.url).appendTo("#picasaThumb_" + albumid);					
 						tmpCount = false;
 					}
 				});
