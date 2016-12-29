@@ -24,13 +24,13 @@ function loadData_iphentai(userid, albumid, authkey, thumbsize, photosize, margi
 	}	
 }
 
-function loadRecentPost_001(userid, albumid, authkey, thumbsize, photosize, margin) {
+function loadRecentPost_001(userid, albumid, authkey, thumbsize, photosize, margin, idDivRecent) {
 	var ts = thumbsize || DEFAULT_THUMBSIZE;
 
 	var scripts = document.getElementsByTagName('script');
 	var me = scripts[scripts.length-1];
 	//var idDiv = "recentPosts";	
-	var idDiv = me.parentNode.id;	
+	var idDiv = idDivRecent;	
 	console.log('parent id', me.parentNode.id);	
 		
 	// Originally based on code from http://www.bloggingtips.com/2009/03/23/picasa-widgets-and-plugins-for-your-blog/
