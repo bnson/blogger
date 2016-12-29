@@ -31,7 +31,7 @@ function loadRecentPost_001(userid, albumid, authkey, thumbsize, photosize, marg
 	var me = scripts[scripts.length-1];
 	//var idDiv = "recentPosts";	
 	var idDiv = me.parentNode.id;	
-	//console.log('parent id', me.parentNode.id);	
+	console.log('parent id', me.parentNode.id);	
 		
 	// Originally based on code from http://www.bloggingtips.com/2009/03/23/picasa-widgets-and-plugins-for-your-blog/
 	$j = jQuery.noConflict();
