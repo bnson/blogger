@@ -25,13 +25,10 @@ function loadData_iphentai(userid, albumid, authkey, thumbsize, photosize, margi
 }
 
 function loadRecentPost_001(userid, albumid, authkey, thumbsize, photosize, margin, idDivRecent) {
+	
 	var ts = thumbsize || DEFAULT_THUMBSIZE;
-
-	var scripts = document.getElementsByTagName('script');
-	var me = scripts[scripts.length-1];
-	//var idDiv = "recentPosts";	
 	var idDiv = idDivRecent;	
-	console.log('parent id', idDiv);	
+	console.log(idDiv);	
 		
 	// Originally based on code from http://www.bloggingtips.com/2009/03/23/picasa-widgets-and-plugins-for-your-blog/
 	$j = jQuery.noConflict();
@@ -40,8 +37,7 @@ function loadRecentPost_001(userid, albumid, authkey, thumbsize, photosize, marg
 			"http://picasaweb.google.com/data/feed/api/user/" + userid + "/album/" + albumid + "?authkey=" + authkey + "&kind=photo&alt=json-in-script&callback=?",
 			function(data, status) {
 
-				//$j("#" + idDiv).append("<div class='col-xs-6 col-md-3' id=\"" + albumid + "\"></div>");
-				$j("#" + idDiv).append("<div class='row' id=\"picasaThumb_" + albumid + "\"></div>");								
+				$j("#" + idDiv).append("<div class='row' id=\"picasaThumb_" + albumid + "\"></div>");									
 
 				var tmpCount = true;
 				$j.each(data.feed.entry, function(i, pic) {
@@ -55,8 +51,7 @@ function loadRecentPost_001(userid, albumid, authkey, thumbsize, photosize, marg
 				});
 		});
 		
-	});		
-
+	});	
 	
 	
 }
