@@ -28,7 +28,7 @@ function loadRecentPost_001(userid, albumid, authkey, thumbsize, photosize, marg
 	
 	var ts = thumbsize || DEFAULT_THUMBSIZE;
 	var idDiv = idDivRecent;	
-	console.log(idDiv);	
+	console.log(idDivRecent);	
 		
 	// Originally based on code from http://www.bloggingtips.com/2009/03/23/picasa-widgets-and-plugins-for-your-blog/
 	$j = jQuery.noConflict();
