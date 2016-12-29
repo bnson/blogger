@@ -39,8 +39,8 @@ function loadRecentPost_001(userid, albumid, authkey, thumbsize, photosize, marg
 			"http://picasaweb.google.com/data/feed/api/user/" + userid + "/album/" + albumid + "?authkey=" + authkey + "&kind=photo&alt=json-in-script&callback=?",
 			function(data, status) {
 
-				$j("#" + idDiv).append("<div class='row albums' id=\"" + albumid + "\"></div>");
-				$j("#" + albumid).append("<div class='col-xs-12 picasaThumbs' id=\"picasaThumb_" + albumid + "\"></div>");								
+				$j("#" + idDiv).append("<div class='col-xs-6 col-md-3' id=\"" + albumid + "\"></div>");
+				$j("#" + albumid).append("<div class='row' id=\"picasaThumb_" + albumid + "\"></div>");								
 
 				var tmpCount = true;
 				$j.each(data.feed.entry, function(i, pic) {
