@@ -31,7 +31,7 @@ function loadRecentPost_001(userid, albumid, authkey, thumbsize, photosize, marg
 	var me = scripts[scripts.length-1];
 	//var idDiv = "recentPosts";	
 	var idDiv = idDivRecent;	
-	console.log('parent id', me.parentNode.id);	
+	console.log('parent id', idDiv);	
 		
 	// Originally based on code from http://www.bloggingtips.com/2009/03/23/picasa-widgets-and-plugins-for-your-blog/
 	$j = jQuery.noConflict();
@@ -48,7 +48,8 @@ function loadRecentPost_001(userid, albumid, authkey, thumbsize, photosize, marg
 					var thumb = pic.media$group.media$thumbnail[ts];
 
 					if (tmpCount) {
-						$j("<img/>").attr("src", thumb.url).appendTo("#picasaThumb_" + albumid);					
+						$j("<img/>").attr("src", thumb.url.replace("s288","s400"))
+							.appendTo("#picasaThumb_" + albumid);					
 						tmpCount = false;
 					}
 				});
