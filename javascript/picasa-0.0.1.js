@@ -15,7 +15,7 @@ var DEFAULT_PHOTOSIZE = PHOTO_MEDIUM;
 var URL = window.location.href;
 
 function loadData_iphentai(userid, albumid, authkey, thumbsize, photosize, margin) {
-	console.log('URL', URL);	
+	//console.log('URL', URL);	
 	if (URL.toLowerCase().endsWith(".html")) {
 		loadDetailAlbum_001(userid, albumid, authkey, thumbsize, photosize, margin);
 		
