@@ -44,7 +44,7 @@ function loadRecentPost_001(userid, albumid, authkey, thumbsize, photosize, marg
 					var thumb = pic.media$group.media$thumbnail[ts];
 
 					if (tmpCount) {
-						$j("<img/>").attr("src", thumb.url.replace("s288","s400"))
+						$j("<img/>").attr("src", thumb.url.replace("s288","s200"))
 							.appendTo("#picasaThumb_" + albumid);					
 						tmpCount = false;
 					}
