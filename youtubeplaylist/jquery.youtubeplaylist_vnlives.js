@@ -36,7 +36,9 @@ jQuery.fn.ytplaylist = function(options) {
 		//throw a youtube player in
 		function play(id)
 		{
-		   var html = "<iframe width='640' height='360' src='https://www.youtube.com/embed/" + id + "' frameborder='0' allowfullscreen></iframe>";			
+		   //var html = "<iframe width='640' height='360' src='https://www.youtube.com/embed/" + id + "' frameborder='0' allowfullscreen></iframe>";			
+		   var html = <iframe width="640" height="360" src="https://www.youtube.com/embed/Dn5HuYCnP7E?list=PLE84XhbrKrKS0F8jeB1uA0kiaIXBLjCs7" frameborder="0" allowfullscreen></iframe>		   
+		   
 		   return html;
 		   
 		};
@@ -49,20 +51,26 @@ jQuery.fn.ytplaylist = function(options) {
 			return ytid;
 		};
 		
+		function youtubeplaylistid(url) {
+			var ytid = url.match("[\\?&]v=([^*]*)");
+			ytid = ytid[1];
+			return ytid;
+		};		
+		
 		
 		//load inital video
 		var firstVid = selector.children("li:first-child").addClass("currentvideo").children("a").attr("href");
-		$("#"+options.holderId+"").html(play(youtubeid(firstVid)));
+		$("#"+options.holderId+"").html(play(youtubeplaylistid(firstVid)));
 		
 		//load video on request
 		selector.children("li").children("a").click(function() {
 			
 			if(options.showInline) {
 				$("li.currentvideo").removeClass("currentvideo");
-				$(this).parent("li").addClass("currentvideo").html(play(youtubeid($(this).attr("href"))));
+				$(this).parent("li").addClass("currentvideo").html(play(youtubeplaylistid($(this).attr("href"))));
 			}
 			else {
-				$("#"+options.holderId+"").html(play(youtubeid($(this).attr("href"))));
+				$("#"+options.holderId+"").html(play(youtubeplaylistid($(this).attr("href"))));
 				$(this).parent().parent("ul").find("li.currentvideo").removeClass("currentvideo");
 				$(this).parent("li").addClass("currentvideo");
 			}
@@ -80,10 +88,10 @@ jQuery.fn.ytplaylist = function(options) {
 				var replacedText = $(this).text();
 				
 				if(options.thumbSize == 'small') {
-					var thumbUrl = "http://img.youtube.com/vi/"+youtubeid($(this).children("a").attr("href"))+"/2.jpg";
+					var thumbUrl = "http://img.youtube.com/vi/"+youtubeplaylistid($(this).children("a").attr("href"))+"/2.jpg";
 				}
 				else {
-					var thumbUrl = "http://img.youtube.com/vi/"+youtubeid($(this).children("a").attr("href"))+"/0.jpg";
+					var thumbUrl = "http://img.youtube.com/vi/"+youtubeplaylistid($(this).children("a").attr("href"))+"/0.jpg";
 				}
 				
 				
