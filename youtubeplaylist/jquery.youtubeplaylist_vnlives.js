@@ -52,8 +52,9 @@ jQuery.fn.ytplaylist = function(options) {
 		};
 		
 		function youtubeplaylistid(url) {
-			var ytid = url.match("[\\?&]v=([^*]*)");
-			ytid = ytid[1];
+			var ytlist = url.match('[\\?&]list=([^*]*)');
+			var ytid = url.match('[\\?&]v=([^&#]*)');
+			ytid = ytid[1] + "?list=" + ytlist[1];
 			return ytid;
 		};		
 		
