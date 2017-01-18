@@ -36,8 +36,8 @@ jQuery.fn.ytplaylist = function(options) {
 		//throw a youtube player in
 		function play(id)
 		{
-		   //var html = "<iframe width='640' height='360' src='https://www.youtube.com/embed/" + id + "' frameborder='0' allowfullscreen></iframe>";			
-		   var html = <iframe width="640" height="360" src="https://www.youtube.com/embed/Dn5HuYCnP7E?list=PLE84XhbrKrKS0F8jeB1uA0kiaIXBLjCs7" frameborder="0" allowfullscreen></iframe>		   
+		   var html = "<iframe width='640' height='360' src='https://www.youtube.com/embed/" + id + "' frameborder='0' allowfullscreen></iframe>";			
+
 		   
 		   return html;
 		   
