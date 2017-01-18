@@ -36,21 +36,7 @@ jQuery.fn.ytplaylist = function(options) {
 		//throw a youtube player in
 		function play(id)
 		{
-		   var html  = '';
-	
-		   html += '<object height="'+options.playerHeight+'" width="'+options.playerWidth+'">';
-		   html += '<param name="movie" value="http://www.youtube.com/v/'+id+autoPlay+showRelated+fullScreen+'"> </param>';
-		   html += '<param name="wmode" value="transparent"> </param>';
-		   if(options.allowFullScreen) { 
-		   		html += '<param name="allowfullscreen" value="true"> </param>'; 
-		   }
-		   html += '<embed src="http://www.youtube.com/v/'+id+autoPlay+showRelated+fullScreen+'"';
-		   if(options.allowFullScreen) { 
-		   		html += ' allowfullscreen="true" '; 
-		   	}
-		   html += 'type="application/x-shockwave-flash" wmode="transparent"  height="'+options.playerHeight+'" width="'+options.playerWidth+'"></embed>';
-		   html += '</object>';
-			
+		   var html = "<iframe width='640' height='360' src='https://www.youtube.com/embed/" + id + "' frameborder='0' allowfullscreen></iframe>";			
 		   return html;
 		   
 		};
